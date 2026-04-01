@@ -1,0 +1,99 @@
+public class AtividadeDeProgramacaoJava01 {
+
+    public static void main(String[] args) {
+        
+        //Declação de variáveis (<tipo> <nome_da_variável>):
+
+	int nomeDaVariavelInteira;
+        double nomeDaVariavelDouble;
+        
+        //Criando um objeto do tipo Scanner para ler valores externos via teclado:
+
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("Insira o valor da variável inteira: ");
+        nomeDaVariavelInteira = scan.nextInt();
+        
+        System.out.println("Insira o valor da variável inteira: ");
+        nomeDaVariavelDouble = scan.nextDouble();
+
+        scan.close(); // Esta linha deve ficar ao final do código
+
+        // ESTRUTURAS DE DECISÃO:
+        
+	if (//estrutura de comparação do IF){
+            //Bloco de comandos do IF;
+	}
+	
+	else {
+	    //Bloco de comandos do ELSE;
+	}
+
+
+	switch (//variável que será analisada no SWITCH){
+                    case 1: 
+			//Aqui você deve inserir os comandos para o CASE 1; 
+			break;
+                    case 2: 
+			//Aqui você deve inserir os comandos para o CASE 2; 
+			break;
+                    case 3: 
+			//Aqui você deve inserir os comandos para o CASE 3;
+			break;
+                    case 4: 
+			//Aqui você deve inserir os comandos para o CASE 4;
+			break;
+                    case 5: 
+			//Aqui você deve inserir os comandos para o CASE 5;
+			break;
+                    default: 
+			//Aqui você deve inserir os comandos para o DEFAULT; 
+			break;
+        }
+
+
+	//ESTRUTURAS DE REPETIÇÃO:
+        
+	//Estrutura FOR:
+        for (int i = 0; i <= 10; i++){
+            System.out.print(i + " ");
+        }
+        
+       //Estrutura WHILE:
+        while (i <= 10){
+            System.out.print(i + " ");
+            i++;
+        }
+        
+        //Estrutura DO-WHILE:
+        do {
+            System.out.print(i + " ");
+            i++;
+        }while(i <= 10);
+        
+        
+        //VETORES:
+	
+        int variavel[] = new int[5]; //Declarando um vetor de 5 posições.
+          
+	//Estrutura usada para inserir valores no vetor.      
+        for (int i = 0; i < variavel.length; i++){
+            System.out.println("Digite o valor da que será colocado no vetor: ");
+            variavel[i] = scan.nextInt();
+        }
+        
+	//Estrutura para acessar os valores do vetor.
+        for (int i = 0; i < variavel.length; i++){
+            System.out.println("O valor da posição numero: " + i + "no vetor é: " + variavel[i]);
+            
+        }
+       
+        
+        
+        
+        
+        
+        
+        
+    }
+}
