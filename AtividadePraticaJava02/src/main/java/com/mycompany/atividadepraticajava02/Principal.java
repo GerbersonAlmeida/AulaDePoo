@@ -16,7 +16,7 @@ public class Principal {
         Scanner scan = new Scanner(System.in);
         ArrayList lista = new ArrayList();
         
-        Conta c = new Conta();
+        
         int contadorNumeroConta = 0;
         double valor = 0;
         int opcao = 0, numeroConsulta = 0;
@@ -38,16 +38,19 @@ public class Principal {
             
         while(opcao == 1 || opcao == 2 || opcao == 3 || opcao == 4){
             Iterator i = lista.iterator();
+            Conta c = new Conta();
             switch(opcao){
                 case 1:
+                    
+                    contadorNumeroConta = contadorNumeroConta + 1;
+                    c.numero = contadorNumeroConta;
                     System.out.println("\nInforme o nome do(a) titular da conta: ");
-                    c.nome_titular = scan.next();
+                    scan.nextLine();
+                    c.nome_titular = scan.nextLine();
                     
                     System.out.println("\nInforme o saldo atual da conta: ");
                     c.saldo = scan.nextDouble();
-                    
-                    c.numero = contadorNumeroConta + 1;
-                    
+                                       
                     System.out.println("\nO numero da sua conta e: " + c.numero );
                     
                     lista.add(c);
@@ -55,19 +58,24 @@ public class Principal {
                     break;
                     
                 case 2:
+                    boolean contaEncontrada = false;
+                    System.out.println("\nInforme o numero da conta: ");
+                        numeroConsulta = scan.nextInt();
+                    
                     while (i.hasNext()){
                         c=(Conta)i.next();
-                        System.out.println("\nInforme o numero da conta: ");
-                        numeroConsulta = scan.nextInt();
+                        
                         if(c.numero == numeroConsulta){
-                            System.out.println("\nO saldo atual da conta e: " + c.saldo);
+                            System.out.println(c.nome_titular + "\no saldo atual da sua conta e: " + c.saldo);
+                            contaEncontrada = true;
+                            break;
                         }// fim if 1
-                        else{
-                            System.out.println("\nNumero da conta esta incorreto!: " + c.saldo);
-                        }//fim else 1
+                       
                     }// fim while 2
-                    
-                    break;
+                    if(contaEncontrada == false){
+                        System.out.println("\nNumero da conta esta incorreto!: ");
+                    }// fim if 2
+                  
                 case 3:
                     
                     while (i.hasNext()){
@@ -81,12 +89,12 @@ public class Principal {
                             if(resposta){
                                 System.out.println("Saque realizado com sucesso!");
                                 System.out.println("\nO saldo atual da conta e: " + c.saldo);
-                            }// fim if 3
+                            }// fim if 4
                             else{
                                 System.out.println("Nao foi possivel realizar o saque!");
                                 System.out.println("\nO saldo atual da conta permanece: \n" + c.saldo);
                             }// fim else 2
-                        }// fim if 2
+                        }// fim if 3
                         else{
                             System.out.println("\nNumero da conta esta incorreto!: " + c.saldo);
                         }//fim else 1
@@ -97,11 +105,11 @@ public class Principal {
                     if(resposta){
                         System.out.println("Saque realizado com sucesso!");
                         System.out.println("\nO saldo atual da conta e: " + c.saldo);
-                    }// fim if 2
+                    }// fim if 5
                     else{
                         System.out.println("Nao foi possivel realizar o saque!");
                         System.out.println("\nO saldo atual da conta permanece: \n" + c.saldo);
-                    }// fim else 2
+                    }// fim else 3
                     break;// fim caso 3
                 
                 case 4:
@@ -114,10 +122,10 @@ public class Principal {
                             valor = scan.nextDouble();
                             c.depositar(valor);
                             System.out.println("\nO saldo atual da conta e: " + c.saldo);
-                        }// fim if 4
+                        }// fim if 6
                         else{
                             System.out.println("\nNumero da conta esta incorreto!: " + c.saldo);
-                        }//fim else 1
+                        }//fim else 4
                     }// fim while 2
                     System.out.println("Informe o valor que se deseja depoistar na conta: ");
                     valor = scan.nextDouble();
